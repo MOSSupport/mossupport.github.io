@@ -708,31 +708,31 @@
 <h6 id="&#xADF8;&#xB798;&#xD504;-&#xB370;&#xC774;&#xD130;&#xBCA0;&#xC774;&#xC2A4;&#xB294;-&#xAC00;&#xC7A5;-&#xC77C;&#xBC18;&#xC801;&#xC778;-&#xB370;&#xC774;&#xD130;-&#xAD6C;&#xC870;&#xC778;-&#xADF8;&#xB798;&#xD504;&#xB85C;-&#xB370;&#xC774;&#xD130;&#xB97C;-&#xC800;&#xC7A5;&#xD558;&#xBA70;-&#xBAA8;&#xB4E0;-&#xC885;&#xB958;&#xC758;-&#xB370;&#xC774;&#xD130;&#xB97C;-&#xC27D;&#xAC8C;-&#xC561;&#xC138;&#xC2A4;-&#xD560;-&#xC218;-&#xC788;&#xB294;-&#xBC29;&#xC2DD;&#xC73C;&#xB85C;-&#xD45C;&#xD604;&#xD560;-&#xC218;-&#xC788;&#xC2B5;&#xB2C8;&#xB2E4;-neo4j&#xADF8;&#xB798;&#xD504;&#xB294;-&#xD2B9;&#xC131;-&#xADF8;&#xB798;&#xD504;&#xBAA8;&#xB378;property-graph-model&#xC744;-&#xAE30;&#xBC18;&#xC73C;&#xB85C;-&#xD569;&#xB2C8;&#xB2E4;">그래프 데이터베이스는 가장 일반적인 데이터 구조인 그래프로 데이터를 저장하며, 모든 종류의 데이터를 쉽게 액세스 할 수 있는 방식으로 표현할 수 있습니다. Neo4j그래프는 <a href="">특성 그래프모델(Property Graph Model)</a>을 기반으로 합니다.</h6>
 <p>그래프 데이터베이스 용어에 대해서는 부록 B, <a href="https://neo4j.com/docs/developer-manual/current/terminology/">Terminology</a>를 참고하세요.</p>
 <p>단계별로 접근하는 예제그래프:</p>
-<p><img src=".\developer-manual\introduction\img\graphdb-simple-labels.svg" alt="" title="&#xC774;&#xBBF8;&#xC9C0;&#xC81C;&#xBAA9;"></p>
+<p><img src=".\img\graphdb-simple-labels.svg" alt="" title="&#xC774;&#xBBF8;&#xC9C0;&#xC81C;&#xBAA9;"></p>
 <h4 id="1211-&#xB178;&#xB4DC;">1.2.1.1. 노드</h4>
 <h6 id="neo4j&#xC758;-&#xB178;&#xB4DC;&#xB294;-&#xC18D;&#xC131;properties1213-&#xC18D;&#xC131;-&#xBC0F;-&#xB808;&#xC774;&#xBE14;labels1214-&#xB808;&#xC774;&#xBE14;&#xC774;-&#xC788;&#xB294;-&#xC18D;&#xC131;-&#xADF8;&#xB798;&#xD504;property-graph-modelhttpsgithubcomopencypheropencypherblobmasterdocsproperty-graph-modeladocpgm-definitions-node&#xC5D0;-&#xC124;&#xBA85;&#xB41C;-&#xB178;&#xB4DC;&#xC785;&#xB2C8;&#xB2E4;">Neo4j의 노드는 <a href="#1213-&#xC18D;&#xC131;">속성(properties)</a> 및 <a href="#1214-&#xB808;&#xC774;&#xBE14;">레이블(labels)</a>이 있는 <a href="https://github.com/opencypher/openCypher/blob/master/docs/property-graph-model.adoc#pgm-definitions-node">속성 그래프(property graph model)</a>에 설명된 노드입니다.</h6>
 <p>노드는 엔터티를 나타내는 데 자주 사용되지만, 도메인 관계에 따라 해당 용도로 사용될 수도 있습니다.</p>
 <p>가장 단순한 그래프는 단일 노드입니다. 단일 속성 제목을 가진 하나의 노드로 구성된 아래 그래프를 참고하세요.</p>
-<p><img src=".\developer-manual\introduction\img\graphdb-simple-node.svg" alt="" title="&#xC774;&#xBBF8;&#xC9C0;&#xC81C;&#xBAA9;"></p>
+<p><img src=".\img\graphdb-simple-node.svg" alt="" title="&#xC774;&#xBBF8;&#xC9C0;&#xC81C;&#xBAA9;"></p>
 <p>앞의 예제의 노드에 두 개의 노드와 하나의 속성을 추가하면, 다음과 같습니다.</p>
-<p><img src=".\developer-manual\introduction\img\graphdb-simple-nodes.svg" alt="" title="&#xC774;&#xBBF8;&#xC9C0;&#xC81C;&#xBAA9;"></p>
+<p><img src=".\img\graphdb-simple-nodes.svg" alt="" title="&#xC774;&#xBBF8;&#xC9C0;&#xC81C;&#xBAA9;"></p>
 <h4 id="1212-&#xAD00;&#xACC4;">1.2.1.2. 관계</h4>
 <h6 id="neo4j&#xC758;-&#xAD00;&#xACC4;&#xB294;-&#xAD00;&#xACC4;-&#xC720;&#xD615;-&#xBC0F;-&#xD2B9;&#xC131;&#xC73C;&#xB85C;-&#xD2B9;&#xC131;-&#xADF8;&#xB798;&#xD504;-&#xBAA8;&#xB378;property-graph-modelhttpsgithubcomopencypheropencypherblobmasterdocsproperty-graph-modeladocpgm-definitions-relationship&#xC5D0;-&#xC124;&#xBA85;-&#xB41C;-&#xAD00;&#xACC4;propertieshttpsneo4jcomdocsdeveloper-manualcurrentintroductiongraphdb-conceptsgraphdb-neo4j-properties&#xC785;&#xB2C8;&#xB2E4;">Neo4j의 관계는 관계 유형 및 특성으로 <a href="https://github.com/opencypher/openCypher/blob/master/docs/property-graph-model.adoc#pgm-definitions-relationship">특성 그래프 모델(property graph model)</a>에 설명 된 <a href="https://neo4j.com/docs/developer-manual/current/introduction/graphdb-concepts/#graphdb-neo4j-properties">관계(properties)</a>입니다.</h6>
 <p>그래프 데이터베이스에서 노드간의 관계는 연관데이터를 찾을 수 있는 핵심 기능입니다. 관계는 두 개의 노드를 연결하며, 유효한 소스 및 대상 노드를 지닙니다.</p>
 <p>관계는 노드를 임의의 구조로 구성하여 그래프를 목록, 트리,지도 또는 복합 엔티티와 유사하게 만들 수 있습니다. 이 중 하나는 더 복잡하고 풍부게 상호 연결된 구조로 결합이 가능합니다.</p>
 <p>우리의 예제 그래프는 관계를 추가하면 훨씬 더 이해하기 쉽습니다.</p>
-<p><img src=".\developer-manual\introduction\img\graphdb-simple-rels.svg" alt="" title="&#xC774;&#xBBF8;&#xC9C0;&#xC81C;&#xBAA9;"></p>
+<p><img src=".\img\graphdb-simple-rels.svg" alt="" title="&#xC774;&#xBBF8;&#xC9C0;&#xC81C;&#xBAA9;"></p>
 <p>이 예에서는 관계 유형으로 ACTED_IN 및 DIRECTED를 사용합니다. ACTED_IN 관계의 roles 등록 정보에는 하나의 항목이 있는 배열 값이 있습니다.</p>
 <p>아래는 ACTED_IN 관계입니다. Tom Hanks 노드를 소스 노드로, Forrest Gump를 대상 노드로 사용합니다.</p>
-<p><img src=".\developer-manual\introduction\img\graphdb-nodes-and-rel.svg" alt="" title="&#xC774;&#xBBF8;&#xC9C0;&#xC81C;&#xBAA9;"></p>
+<p><img src=".\img\graphdb-nodes-and-rel.svg" alt="" title="&#xC774;&#xBBF8;&#xC9C0;&#xC81C;&#xBAA9;"></p>
 <p>Tom Hanks 노드는 나가는 관계를 가지며, Forrest Gump 노드는 들어오는 관계가 있음을 알 수 있습니다.</p>
 <p>즉, 운행 또는 성능과 관련하여 반대 방향으로 중복 관계를 추가 할 필요가 없습니다.</p>
 <p>관계에는 항상 방향이 있지만 응용 프로그램에서 유용하지 않은 방향은 무시할 수 있습니다.</p>
-<p><img src=".\developer-manual\introduction\img\graphdb-nodes-and-rel-self.svg" alt="" title="&#xC774;&#xBBF8;&#xC9C0;&#xC81C;&#xBAA9;"></p>
+<p><img src=".\img\graphdb-nodes-and-rel-self.svg" alt="" title="&#xC774;&#xBBF8;&#xC9C0;&#xC81C;&#xBAA9;"></p>
 <p>노드는 자신과의 관계도 가질 수 있습니다.</p>
 <p>위의 예는 Tom Hanks가 자신을 알고 있음을 의미합니다.</p>
 <p>노드의 관계를 간단히 따라 가면서 찾을 수있는 것을 예제 그래프로 살펴 보겠습니다.<br>
-<img src=".\developer-manual\introduction\img\graphdb-simple-rels.svg" alt="" title="&#xC774;&#xBBF8;&#xC9C0;&#xC81C;&#xBAA9;"></p>
+<img src=".\img\graphdb-simple-rels.svg" alt="" title="&#xC774;&#xBBF8;&#xC9C0;&#xC81C;&#xBAA9;"></p>
 <p>표 1.1. 관계의 방향과 유형의 사용</p>
 <table>
 <thead>
@@ -775,9 +775,9 @@
 <p>예를 들어, 사용자를 나타내는 모든 노드는 레이블 :User로 레이블 될 수 있습니다. 거기에, Neo4j에게 주어진 이름의 모든 사용자를 찾는 것과 같이 사용자 노드에서만 작업을 수행하도록 요청할 수 있습니다.</p>
 <p>그러나 훨씬 더 많은 것을 위해 레이블을 사용할 수 있습니다. 예를 들어, 런타임 중에 레이블을 추가하거나 제거 할 수 있으므로 노드의 임시 상태를 표시하는 데 사용할 수 있습니다. A : 일시 중지 된 은행 계좌는 정지 된 은행 계좌를 나타내는 데 사용할 수 있습니다. a : 현재 시즌을 시작하는 야채를 나타내는 계절 레이블 등이 있습니다.</p>
 <p>이 예에서는 그래프에 Person과 Movie 레이블을 추가합니다.<br>
-<img src=".\developer-manual\introduction\img\graphdb-simple-labels.svg" alt="" title="&#xC774;&#xBBF8;&#xC9C0;&#xC81C;&#xBAA9;"></p>
+<img src="\img\graphdb-simple-labels.svg" alt="" title="&#xC774;&#xBBF8;&#xC9C0;&#xC81C;&#xBAA9;"></p>
 <p>노드가 다중 레이블을 가질 수있는 방법을 예시하기 위해 : Actor 레이블을 Tom Hanks 노드에 추가해 봅니다.<br>
-<img src=".\developer-manual\introduction\img\graphdb-simple-labels-multi.svg" alt="" title="&#xC774;&#xBBF8;&#xC9C0;&#xC81C;&#xBAA9;"></p>
+<img src="\img\graphdb-simple-labels-multi.svg" alt="" title="&#xC774;&#xBBF8;&#xC9C0;&#xC81C;&#xBAA9;"></p>
 <h4 id="&#xB808;&#xC774;&#xBE14;-&#xBA85;">레이블 명</h4>
 <p>유니 코드 문자열을 레이블 이름으로 사용할 수 있습니다. Cypher에서 Cypher 식별자 규칙과의 충돌을 피하거나 레이블에 영숫자가 아닌 문자를 허용하려면 backtick ( ') 구문을 사용해야 할 수 있습니다. 관습에 따라 레이블은 CamelCase 표기법으로 작성되며 첫 번째 문자는 대문자입니다. 예를 들어, User 또는 CarOwner. Cypher 쿼리의 스타일 지정에 대한 자세한 내용은 <a href="https://github.com/opencypher/openCypher/blob/master/docs/style-guide.adoc">Cypher 스타일 가이드</a>를 참조하십시오.</p>
 <p>레이블에는 int의 id 공간이 있습니다. 즉, 데이터베이스에 포함 할 수있는 레이블의 최대 수는 약 20 억 개입니다.</p>
@@ -787,16 +787,16 @@
 <p>그래프를 가로 지르는 것은 몇 가지 규칙에 의한 관계를 따라 노드를 방문하는 것을 의미합니다. 그래프에서 흥미로운 노드와 관계가 있는 부분을 이미 알고 있으므로 대부분의 경우 하위 그래프만 방문합니다.</p>
 <p>Cypher는 순회(Traversal) 및 기타 기법을 사용하여 그래프를 쿼리하는 선언적 방법을 제공합니다. 자세한 내용은 <a href=".\developer-manual\cypher\cypher.html">3. Cypher</a>를 참조하십시오.</p>
 <p>우리가 작은 예제 데이터베이스에 따라 Tom Hanks가 연기 한 영화를 찾고 싶다면 Tom Hanks 노드에서 시작하여 노드에 연결된 ACTED_IN 관계를 따르고 결과로 Forrest Gump로 마무리 합니다. 점선을 참고하세요 :</p>
-<p><img src=".\developer-manual\introduction\img\graphdb-traversal.svg" alt="" title="&#xC774;&#xBBF8;&#xC9C0;&#xC81C;&#xBAA9;"></p>
+<p><img src="\img\graphdb-traversal.svg" alt="" title="&#xC774;&#xBBF8;&#xC9C0;&#xC81C;&#xBAA9;"></p>
 <h4 id="1216-&#xACBD;&#xB85C;">1.2.1.6. 경로</h4>
 <h6 id="neo4j&#xC758;-&#xACBD;&#xB85C;&#xB294;-&#xC18D;&#xC131;-&#xADF8;&#xB798;&#xD504;-&#xBAA8;&#xB378;&#xC5D0;-&#xC124;&#xBA85;-&#xB41C;-&#xACBD;&#xB85C;&#xC785;&#xB2C8;&#xB2E4;-&#xACBD;&#xB85C;&#xB294;-cypher-&#xCFFC;&#xB9AC;-&#xB610;&#xB294;-&#xC21C;&#xD68C;&#xC5D0;&#xC11C;-&#xAC80;&#xC0C9;&#xB429;&#xB2C8;&#xB2E4;">Neo4j의 경로는 <a href="">속성 그래프 모델</a>에 설명 된 경로입니다. 경로는 Cypher 쿼리 또는 순회에서 검색됩니다.</h6>
 <p>이전 예제에서 순회(Traversal) 결과는 경로로 반환 될 수 있습니다.<br>
-<img src=".\developer-manual\introduction\img\graphdb-path.svg" alt="" title="&#xC774;&#xBBF8;&#xC9C0;&#xC81C;&#xBAA9;"></p>
+<img src="\img\graphdb-path.svg" alt="" title="&#xC774;&#xBBF8;&#xC9C0;&#xC81C;&#xBAA9;"></p>
 <p>위 경로는 길이가 1입니다.</p>
 <p>가능한 최단 경로는 길이가 0입니다. 즉, 단일 노드 만 있고 관계가 없는 경로이며 다음과 같이 표시 될 수 있습니다.<br>
-<img src=".\developer-manual\introduction\img\graphdb-path-zero.svg" alt="" title="&#xC774;&#xBBF8;&#xC9C0;&#xC81C;&#xBAA9;"></p>
+<img src="\img\graphdb-path-zero.svg" alt="" title="&#xC774;&#xBBF8;&#xC9C0;&#xC81C;&#xBAA9;"></p>
 <p>이 경로의 길이는 1입니다.<br>
-<img src=".\developer-manual\introduction\img\graphdb-path-example-loop.svg" alt="" title="&#xC774;&#xBBF8;&#xC9C0;&#xC81C;&#xBAA9;"></p>
+<img src="\img\graphdb-path-example-loop.svg" alt="" title="&#xC774;&#xBBF8;&#xC9C0;&#xC81C;&#xBAA9;"></p>
 <h4 id="1217-&#xC2A4;&#xD0A4;&#xB9C8;">1.2.1.7. 스키마</h4>
 <h6 id="neo4j&#xB294;-&#xC120;&#xD0DD;&#xC801;-&#xC2A4;&#xD0A4;&#xB9C8;-&#xADF8;&#xB798;&#xD504;-&#xB370;&#xC774;&#xD130;&#xBCA0;&#xC774;&#xC2A4;&#xC785;&#xB2C8;&#xB2E4;">Neo4j는 선택적 스키마 그래프 데이터베이스입니다.</h6>
 <p>스키마없이 Neo4j를 사용할 수 있습니다. 선택적으로, 성능 또는 모델링 이점을 얻기 위해 스키마를 도입 할 수 있습니다. 이렇게 하면 스키마를 사용함으로써 얻을 수 있는 혜택을 누리고자 할 때 사용할 수 있습니다.</p>
