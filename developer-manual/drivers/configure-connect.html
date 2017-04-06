@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>configure-connect</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+
+    <style>
+    atom-text-editor {
+  background-color: white;
+  color: #555;
+}.markdown-preview-enhanced pre .invisible-character {
+  color: rgba(85, 85, 85, 0.2);
+}.markdown-preview-enhanced pre .indent-guide {
+  color: rgba(85, 85, 85, 0.2);
+}.markdown-preview-enhanced pre .wrap-guide {
+  background-color: rgba(85, 85, 85, 0.2);
+}.markdown-preview-enhanced pre .gutter {
+  color: #555;
+  background: white;
+}.markdown-preview-enhanced pre .gutter .line-number.folded,.markdown-preview-enhanced pre .gutter .line-number:after,.markdown-preview-enhanced pre .fold-marker:after {
+  color: #e87b00;
+}.markdown-preview-enhanced pre .invisible {
+  color: #555;
+}.markdown-preview-enhanced pre .selection .region {
+  background-color: #e1e1e1;
+}.markdown-preview-enhanced pre .bracket-matcher .region {
+  background-color: #C9C9C9;
+  opacity: .7;
+  border-bottom: 0 none;
+}.markdown-preview-enhanced pre.is-focused .cursor {
+  border-color: black;
+}.markdown-preview-enhanced pre.is-focused .selection .region {
+  background-color: #afc4da;
+}.markdown-preview-enhanced pre.is-focused .line-number.cursor-line-no-selection,.markdown-preview-enhanced pre.is-focused .line.cursor-line {
+  background-color: rgba(255, 255, 134, 0.34);
+}.markdown-preview-enhanced pre .mpe-syntax--source.mpe-syntax--gfm {
+  color: #444;
+}.markdown-preview-enhanced pre .mpe-syntax--gfm .mpe-syntax--markup.mpe-syntax--heading {
+  color: #111;
+}.markdown-preview-enhanced pre .mpe-syntax--gfm .mpe-syntax--link {
+  color: #888;
+}.markdown-preview-enhanced pre .mpe-syntax--gfm .mpe-syntax--variable.mpe-syntax--list {
+  color: #888;
+}.markdown-preview-enhanced pre .mpe-syntax--markdown .mpe-syntax--paragraph {
+  color: #444;
+}.markdown-preview-enhanced pre .mpe-syntax--markdown .mpe-syntax--heading {
+  color: #111;
+}.markdown-preview-enhanced pre .mpe-syntax--markdown .mpe-syntax--link {
+  color: #888;
+}.markdown-preview-enhanced pre .mpe-syntax--markdown .mpe-syntax--link .mpe-syntax--string {
+  color: #888;
+}
+.mpe-syntax--comment {
+  color: #999988;
+  font-style: italic;
+}
+.mpe-syntax--string {
+  color: #D14;
+}
+.mpe-syntax--string .mpe-syntax--source,
+.mpe-syntax--string .mpe-syntax--meta.mpe-syntax--embedded.mpe-syntax--line {
+  color: #5A5A5A;
+}
+.mpe-syntax--string .mpe-syntax--punctuation.mpe-syntax--section.mpe-syntax--embedded {
+  color: #920B2D;
+}
+.mpe-syntax--string .mpe-syntax--punctuation.mpe-syntax--section.mpe-syntax--embedded .mpe-syntax--source {
+  color: #920B2D;
+}
+.mpe-syntax--constant.mpe-syntax--numeric {
+  color: #D14;
+}
+.mpe-syntax--constant.mpe-syntax--language {
+  color: #606aa1;
+}
+.mpe-syntax--constant.mpe-syntax--character,
+.mpe-syntax--constant.mpe-syntax--other {
+  color: #606aa1;
+}
+.mpe-syntax--constant.mpe-syntax--symbol {
+  color: #990073;
+}
+.mpe-syntax--constant.mpe-syntax--numeric.mpe-syntax--line-number.mpe-syntax--find-in-files .mpe-syntax--match {
+  color: rgba(143, 190, 0, 0.63);
+}
+.mpe-syntax--variable {
+  color: #008080;
+}
+.mpe-syntax--variable.mpe-syntax--parameter {
+  color: #606aa1;
+}
+.mpe-syntax--keyword {
+  color: #222;
+  font-weight: bold;
+}
+.mpe-syntax--keyword.mpe-syntax--unit {
+  color: #445588;
+}
+.mpe-syntax--keyword.mpe-syntax--special-method {
+  color: #0086B3;
+}
+.mpe-syntax--storage {
+  color: #222;
+}
+.mpe-syntax--storage.mpe-syntax--type {
+  color: #222;
+}
+.mpe-syntax--entity.mpe-syntax--name.mpe-syntax--class {
+  text-decoration: underline;
+  color: #606aa1;
+}
+.mpe-syntax--entity.mpe-syntax--other.mpe-syntax--inherited-class {
+  text-decoration: underline;
+  color: #606aa1;
+}
+.mpe-syntax--entity.mpe-syntax--name.mpe-syntax--function {
+  color: #900;
+}
+.mpe-syntax--entity.mpe-syntax--name.mpe-syntax--tag {
+  color: #008080;
+}
+.mpe-syntax--entity.mpe-syntax--other.mpe-syntax--attribute-name {
+  color: #458;
+  font-weight: bold;
+}
+.mpe-syntax--entity.mpe-syntax--name.mpe-syntax--filename.mpe-syntax--find-in-files {
+  color: #E6DB74;
+}
+.mpe-syntax--support.mpe-syntax--constant,
+.mpe-syntax--support.mpe-syntax--function,
+.mpe-syntax--support.mpe-syntax--type {
+  color: #458;
+}
+.mpe-syntax--support.mpe-syntax--class {
+  color: #008080;
+}
+.mpe-syntax--invalid {
+  color: #F8F8F0;
+  background-color: #00A8C6;
+}
+.mpe-syntax--invalid.mpe-syntax--deprecated {
+  color: #F8F8F0;
+  background-color: #8FBE00;
+}
+.mpe-syntax--meta.mpe-syntax--structure.mpe-syntax--dictionary.mpe-syntax--json > .mpe-syntax--string.mpe-syntax--quoted.mpe-syntax--double.mpe-syntax--json,
+.mpe-syntax--meta.mpe-syntax--structure.mpe-syntax--dictionary.mpe-syntax--json > .mpe-syntax--string.mpe-syntax--quoted.mpe-syntax--double.mpe-syntax--json .mpe-syntax--punctuation.mpe-syntax--string {
+  color: #000080;
+}
+.mpe-syntax--meta.mpe-syntax--structure.mpe-syntax--dictionary.mpe-syntax--value.mpe-syntax--json > .mpe-syntax--string.mpe-syntax--quoted.mpe-syntax--double.mpe-syntax--json {
+  color: #d14;
+}
+.mpe-syntax--meta.mpe-syntax--diff,
+.mpe-syntax--meta.mpe-syntax--diff.mpe-syntax--header {
+  color: #75715E;
+}
+.mpe-syntax--css.mpe-syntax--support.mpe-syntax--property-name {
+  font-weight: bold;
+  color: #333;
+}
+.mpe-syntax--css.mpe-syntax--constant {
+  color: #099;
+}
+.markdown-preview-enhanced {
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+  background-color: white;
+  overflow: initial;
+  margin: 10px 13px 10px 13px;
+  padding: 2em;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+.markdown-preview-enhanced > :first-child {
+  margin-top: 0;
+}
+.markdown-preview-enhanced[is="space-pen-div"] {
+  width: 100%;
+  margin: 0;
+  z-index: 999;
+  overflow: scroll;
+  font-size: 16px;
+  display: block;
+  position: absolute;
+}
+.markdown-preview-enhanced h1,
+.markdown-preview-enhanced h2,
+.markdown-preview-enhanced h3,
+.markdown-preview-enhanced h4,
+.markdown-preview-enhanced h5,
+.markdown-preview-enhanced h6 {
+  line-height: 1.2;
+  margin-top: 1em;
+  margin-bottom: 16px;
+  color: #030303;
+}
+.markdown-preview-enhanced h1 {
+  font-size: 2.25em;
+  font-weight: 300;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid #d6d6d6;
+}
+.markdown-preview-enhanced h2 {
+  font-size: 1.75em;
+  font-weight: 400;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid #d6d6d6;
+}
+.markdown-preview-enhanced h3 {
+  font-size: 1.5em;
+  font-weight: 500;
+}
+.markdown-preview-enhanced h4 {
+  font-size: 1.25em;
+  font-weight: 600;
+}
+.markdown-preview-enhanced h5 {
+  font-size: 1.1em;
+  font-weight: 600;
+}
+.markdown-preview-enhanced h6 {
+  font-size: 1.0em;
+  font-weight: 600;
+}
+.markdown-preview-enhanced h1,
+.markdown-preview-enhanced h2,
+.markdown-preview-enhanced h3,
+.markdown-preview-enhanced h4,
+.markdown-preview-enhanced h5 {
+  font-weight: 600;
+}
+.markdown-preview-enhanced h5 {
+  font-size: 1em;
+}
+.markdown-preview-enhanced h6 {
+  color: #7e7e7e;
+}
+.markdown-preview-enhanced h1,
+.markdown-preview-enhanced h2 {
+  border-bottom: 1px solid #d6d6d6;
+}
+.markdown-preview-enhanced strong {
+  color: #030303;
+}
+.markdown-preview-enhanced del {
+  color: #7e7e7e;
+}
+.markdown-preview-enhanced a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+.markdown-preview-enhanced a {
+  color: #08c;
+  text-decoration: none;
+}
+.markdown-preview-enhanced a:hover {
+  color: #0050a3;
+  text-decoration: none;
+}
+.markdown-preview-enhanced img,
+.markdown-preview-enhanced svg {
+  max-width: 100%;
+}
+.markdown-preview-enhanced > p {
+  margin-top: 0;
+  margin-bottom: 16px;
+  word-wrap: break-word;
+}
+.markdown-preview-enhanced > ul,
+.markdown-preview-enhanced > ol {
+  margin-bottom: 16px;
+}
+.markdown-preview-enhanced ul,
+.markdown-preview-enhanced ol {
+  padding-left: 2em;
+}
+.markdown-preview-enhanced ul.no-list,
+.markdown-preview-enhanced ol.no-list {
+  padding: 0;
+  list-style-type: none;
+}
+.markdown-preview-enhanced ul ul,
+.markdown-preview-enhanced ul ol,
+.markdown-preview-enhanced ol ol,
+.markdown-preview-enhanced ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.markdown-preview-enhanced li {
+  margin-bottom: 0;
+}
+.markdown-preview-enhanced li.task-list-item {
+  list-style: none;
+}
+.markdown-preview-enhanced li > p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.markdown-preview-enhanced .task-list-item-checkbox {
+  margin: 0 0.2em 0.25em -1.6em;
+  vertical-align: middle;
+}
+.markdown-preview-enhanced .task-list-item-checkbox:hover {
+  cursor: pointer;
+}
+.markdown-preview-enhanced blockquote {
+  margin: 16px 0;
+  font-size: inherit;
+  padding: 0 15px;
+  color: #7e7e7e;
+  border-left: 4px solid #d6d6d6;
+}
+.markdown-preview-enhanced blockquote > :first-child {
+  margin-top: 0;
+}
+.markdown-preview-enhanced blockquote > :last-child {
+  margin-bottom: 0;
+}
+.markdown-preview-enhanced hr {
+  height: 4px;
+  margin: 32px 0;
+  background-color: #d6d6d6;
+  border: 0 none;
+}
+.markdown-preview-enhanced table {
+  margin: 10px 0 15px 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+.markdown-preview-enhanced table th {
+  font-weight: bold;
+  color: #030303;
+}
+.markdown-preview-enhanced table td,
+.markdown-preview-enhanced table th {
+  border: 1px solid #d6d6d6;
+  padding: 6px 13px;
+}
+.markdown-preview-enhanced dl {
+  padding: 0;
+}
+.markdown-preview-enhanced dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+.markdown-preview-enhanced dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+.markdown-preview-enhanced code {
+  font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-size: 0.85em !important;
+  color: #030303;
+  background-color: #f0f0f0;
+  border-radius: 3px;
+  padding: 0.2em 0;
+}
+.markdown-preview-enhanced code::before,
+.markdown-preview-enhanced code::after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+.markdown-preview-enhanced pre > code {
+  padding: 0;
+  margin: 0;
+  font-size: 0.85em !important;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+.markdown-preview-enhanced .highlight {
+  margin-bottom: 16px;
+}
+.markdown-preview-enhanced .highlight pre,
+.markdown-preview-enhanced pre {
+  font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+  padding: 16px;
+  overflow: auto;
+  font-size: 0.85em !important;
+  line-height: 1.45;
+  color: #555;
+  background-color: #f0f0f0 !important;
+  border: #d6d6d6;
+  border-radius: 3px;
+}
+.markdown-preview-enhanced .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+.markdown-preview-enhanced pre {
+  word-wrap: break-word;
+  white-space: normal;
+  word-break: break-all;
+}
+.markdown-preview-enhanced pre .section {
+  opacity: 1;
+}
+.markdown-preview-enhanced pre code,
+.markdown-preview-enhanced pre tt {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+.markdown-preview-enhanced pre code:before,
+.markdown-preview-enhanced pre tt:before,
+.markdown-preview-enhanced pre code:after,
+.markdown-preview-enhanced pre tt:after {
+  content: normal;
+}
+.markdown-preview-enhanced p,
+.markdown-preview-enhanced blockquote,
+.markdown-preview-enhanced ul,
+.markdown-preview-enhanced ol,
+.markdown-preview-enhanced dl,
+.markdown-preview-enhanced pre {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+.markdown-preview-enhanced.markdown-preview-enhanced pre {
+  margin: 16px 0;
+  padding: 1em;
+  font-size: .92em;
+  border-radius: 3px;
+  background-color: #f5f5f5;
+}
+.markdown-preview-enhanced kbd {
+  color: #030303;
+  border: 1px solid #d6d6d6;
+  border-bottom: 2px solid #c7c7c7;
+  padding: 2px 4px;
+  background-color: #f0f0f0;
+  border-radius: 3px;
+}
+.markdown-preview-enhanced .pagebreak,
+.markdown-preview-enhanced .newpage {
+  page-break-before: always;
+}
+@media screen and (min-width: 914px) {
+  .markdown-preview-enhanced {
+    width: 980px;
+    margin: 10px auto;
+    background: white;
+  }
+}
+@media screen and (max-width: 400px) {
+  .markdown-preview-enhanced {
+    font-size: 14px;
+    margin: 0 auto;
+    padding: 15px;
+  }
+}
+@media print {
+  .markdown-preview-enhanced {
+    background-color: white;
+  }
+  .markdown-preview-enhanced h1,
+  .markdown-preview-enhanced h2,
+  .markdown-preview-enhanced h3,
+  .markdown-preview-enhanced h4,
+  .markdown-preview-enhanced h5,
+  .markdown-preview-enhanced h6 {
+    color: #030303;
+    page-break-after: avoid;
+  }
+  .markdown-preview-enhanced blockquote {
+    color: #7e7e7e;
+  }
+  .markdown-preview-enhanced table,
+  .markdown-preview-enhanced pre {
+    page-break-inside: avoid;
+  }
+  .markdown-preview-enhanced table {
+    display: table;
+  }
+  .markdown-preview-enhanced img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .markdown-preview-enhanced pre,
+  .markdown-preview-enhanced code {
+    word-wrap: break-word;
+    white-space: normal;
+  }
+}
+.markdown-preview-enhanced[is="space-pen-div"] .code-chunk {
+  position: relative;
+}
+.markdown-preview-enhanced[is="space-pen-div"] .code-chunk .output-div {
+  overflow-x: auto;
+}
+.markdown-preview-enhanced[is="space-pen-div"] .code-chunk .output-div svg {
+  display: block;
+}
+.markdown-preview-enhanced[is="space-pen-div"] .code-chunk pre {
+  cursor: text;
+}
+.markdown-preview-enhanced[is="space-pen-div"] .code-chunk .btn-group {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: none;
+}
+.markdown-preview-enhanced[is="space-pen-div"] .code-chunk .btn-group .run-btn,
+.markdown-preview-enhanced[is="space-pen-div"] .code-chunk .btn-group .run-all-btn {
+  float: right;
+  margin-left: 4px;
+  border-radius: 3px;
+  font-size: 0.8em;
+  color: #eee;
+  background-color: #528bff;
+  background-image: none;
+  border: none;
+}
+.markdown-preview-enhanced[is="space-pen-div"] .code-chunk .btn-group .run-btn:hover,
+.markdown-preview-enhanced[is="space-pen-div"] .code-chunk .btn-group .run-all-btn:hover {
+  background-color: #4b7fe8;
+  cursor: pointer;
+}
+.markdown-preview-enhanced[is="space-pen-div"] .code-chunk:hover .btn-group {
+  display: block;
+}
+.markdown-preview-enhanced[is="space-pen-div"] .code-chunk .status {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 0.85em;
+  color: inherit;
+  padding: 2px 6px;
+  background-color: rgba(0, 0, 0, 0.04);
+  display: none;
+}
+.markdown-preview-enhanced[is="space-pen-div"] .code-chunk.running .btn-group {
+  display: none;
+}
+.markdown-preview-enhanced[is="space-pen-div"] .code-chunk.running .status {
+  display: block;
+}
+.markdown-preview-enhanced[is="space-pen-div"] .back-to-top-btn,
+.markdown-preview-enhanced[is="space-pen-div"] .refresh-btn {
+  position: fixed;
+  display: none;
+  right: 24px;
+  top: 54px;
+}
+.markdown-preview-enhanced[is="space-pen-div"] .back-to-top-btn {
+  right: 72px;
+}
+.markdown-preview-enhanced[is="space-pen-div"]:hover .back-to-top-btn,
+.markdown-preview-enhanced[is="space-pen-div"]:hover .refresh-btn {
+  display: block;
+  opacity: 0.4;
+}
+.markdown-preview-enhanced[is="space-pen-div"]:hover .back-to-top-btn:hover,
+.markdown-preview-enhanced[is="space-pen-div"]:hover .refresh-btn:hover {
+  opacity: 1.0;
+}
+.markdown-preview-enhanced:not([is="space-pen-div"]) .code-chunk .btn-group {
+  display: none;
+}
+.markdown-preview-enhanced:not([is="space-pen-div"]) .code-chunk .status {
+  display: none;
+}
+.markdown-preview-enhanced:not([is="space-pen-div"]) .back-to-top-btn {
+  display: none;
+}
+/*
+ * Reveal.js styles
+ */
+[data-presentation-preview-mode] {
+  background-color: #f4f4f4;
+}
+[data-presentation-preview-mode][data-use-github-style] {
+  background-color: #f4f4f4;
+}
+[data-presentation-preview-mode] .preview-slides {
+  width: 100%;
+}
+[data-presentation-preview-mode] .preview-slides .slide {
+  position: relative;
+  background-color: white !important;
+  padding: 2em !important;
+  margin-bottom: 12px;
+  text-align: left !important;
+  display: flex;
+  align-items: center;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0px 0px 16px 4px #eeeeee;
+  font-size: 24px;
+}
+[data-presentation-preview-mode] .preview-slides .slide h1,
+[data-presentation-preview-mode] .preview-slides .slide h2,
+[data-presentation-preview-mode] .preview-slides .slide h3,
+[data-presentation-preview-mode] .preview-slides .slide h4,
+[data-presentation-preview-mode] .preview-slides .slide h5,
+[data-presentation-preview-mode] .preview-slides .slide h6 {
+  margin-top: 0;
+}
+[data-presentation-preview-mode] .preview-slides .slide .background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+[data-presentation-preview-mode] .preview-slides .slide .background-iframe,
+[data-presentation-preview-mode] .preview-slides .slide .background-iframe-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border: none;
+  z-index: 1;
+}
+[data-presentation-preview-mode] .preview-slides .slide .background-iframe-overlay {
+  z-index: 2;
+}
+[data-presentation-preview-mode][data-use-github-style] .slide {
+  background-color: #fff !important;
+}
+[data-presentation-preview-mode][data-use-github-style] h1,
+[data-presentation-preview-mode][data-use-github-style] h2,
+[data-presentation-preview-mode][data-use-github-style] h3,
+[data-presentation-preview-mode][data-use-github-style] h4,
+[data-presentation-preview-mode][data-use-github-style] h5,
+[data-presentation-preview-mode][data-use-github-style] h6 {
+  margin-top: 0;
+}
+[data-presentation-preview-mode] section {
+  display: block;
+  width: 100%;
+  transform-style: preserve-3d;
+  font-size: 100%;
+  font: inherit;
+  z-index: 100;
+}
+.markdown-preview-enhanced[data-presentation-mode] {
+  font-size: 24px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.markdown-preview-enhanced[data-presentation-mode] h1,
+.markdown-preview-enhanced[data-presentation-mode] h2,
+.markdown-preview-enhanced[data-presentation-mode] h3,
+.markdown-preview-enhanced[data-presentation-mode] h4,
+.markdown-preview-enhanced[data-presentation-mode] h5,
+.markdown-preview-enhanced[data-presentation-mode] h6 {
+  margin-top: 0;
+}
+.markdown-preview-enhanced[data-presentation-mode] strong {
+  font-weight: bold;
+}
+.markdown-preview-enhanced[data-presentation-mode]::-webkit-scrollbar {
+  display: none;
+}
+.markdown-preview-enhanced .slides {
+  text-align: left !important;
+}
+
+    /*
+ * Your Stylesheet
+ *
+ * This stylesheet is loaded when Atom starts up and is reloaded automatically
+ * when it is changed and saved.
+ *
+ * Add your own CSS or Less to fully customize Atom.
+ * If you are unfamiliar with Less, you can read more about it here:
+ * http://lesscss.org
+ */
+/*
+ * Examples
+ * (To see them, uncomment and save)
+ */
+
+    </style>
+
+    <link rel="stylesheet" href="file:///C:\Users\yhjang\.atom\packages\markdown-preview-enhanced\node_modules\katex\dist\katex.min.css">
+
+    
+  </head>
+  <body class="markdown-preview-enhanced  " >
+
+  <h2 id="43-&#xAD6C;&#xC131;-&#xBC0F;-&#xC5F0;&#xACB0;">4.3. 구성 및 연결</h2>
+<h6 id="table-width1200td-width1200neo4j&#xC640;-&#xC5F0;&#xACB0;&#xC744;-&#xC704;&#xD574;-&#xB4DC;&#xB77C;&#xC774;&#xBC84;&#xB97C;-&#xAD6C;&#xC131;&#xD558;&#xACE0;-&#xC0AC;&#xC6A9;&#xD558;&#xC2ED;&#xC2DC;&#xC624;-&#xB4DC;&#xB77C;&#xC774;&#xBC84;&#xB294;-&#xB370;&#xC774;&#xD130;&#xBCA0;&#xC774;&#xC2A4;-&#xC791;&#xC5C5;&#xC5D0;-&#xB300;&#xD55C;-&#xD558;&#xB098;-&#xC774;&#xC0C1;&#xC758;-&#xD2B8;&#xB79C;&#xC7AD;&#xC158;-&#xB9E5;&#xB77D;&#xC778;-&#xC138;&#xC158;&#xC744;-&#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;-tdtable"><em><table width="1200"><td width="1200">Neo4j와 연결을 위해 드라이버를 구성하고 사용하십시오. 드라이버는 데이터베이스 작업에 대한 하나 이상의 트랜잭션 맥락인 세션을 제공합니다. </td></table></em></h6>
+<p>드라이버 개체 인스턴스는 어플리케이션 전체 및 여러 스레드에서 전역으로 공유 될 수 있습니다. 여기에는 작업을 수행하기 위해 빌릴 수 있는 클러스터의 다양한 멤버들에 대한 연결 풀이 포함되어 있습니다.</p>
+<p>드라이버를 닫으면 현재 사용 중인지 여부에 관계없이 해당 드라이버가 생성 한 모든 연결이 끊어집니다.</p>
+<h3 id="431-&#xC0DD;&#xC131;">4.3.1. 생성</h3>
+<p>드라이버 패키지에는 그래프 데이터베이스 객체가 포함되어 있습니다. 이 객체는 드라이버 인스턴스를 제공합니다. 데이터베이스 객체에서 드라이버 인스턴스를 요청할 때 URI가 제공됩니다. URI는 Neo4j 서버의 프로토콜, 호스트 및 포트를 선언합니다.</p>
+<p>볼트 URI에는 다이렉트 URI와 라우팅 URI의 두 가지 종류가 있습니다. 다이렉트 URI는 단일 인스턴스에 연결하는 데 사용됩니다. 어플리케이션이 라우팅 및 로드 밸런싱에 의존하는 경우 이들은 반드시 별도로 제공되어야 합니다. 드라이버는 연결될 수 있는 클러스터를 알지 못하며 단일 서버에 대한 직접 연결만 인식합니다.이 모드는 독립 실행형 인스턴스로 작업하거나 사용자 정의 로드 밸런싱을 배포 할 때 적합합니다(예 : Neo4j 고 가용성 클러스터 및 HAProxy 사용).</p>
+<p>라우팅 URI는 클러스터 인식 드라이버를 만드는 데 사용됩니다. 라우팅 드라이버는 클러스터에 연결하고 라우팅 및 로드 밸런싱을 처리합니다. 드라이버에 시드 URI를 제공 한 후 드라이버는 연결되어 클러스터 토폴로지 개요를 요청합니다. 그 후 드라이버는 특정 작업 항목을 서비스하는 데 가장 적합한 클러스터 멤버에 대해 세션을 생성 할 수 있습니다. 이 모드는 Neo4j Causal Cluster 작업에 적합합니다.</p>
+<h4 id="4311-&#xBCFC;&#xD2B8;-uri-&#xD3EC;&#xB9F7;">4.3.1.1. 볼트 URI 포맷</h4>
+<p>볼트 URI는 <font color="red"><a href="file:///D:\OneDrive - MOS\09. Neo4j Certification, &#xC790;&#xB8CC;\Neo4j &#xBA54;&#xB274;&#xC5BC; &#xD55C;&#xAE00;&#xD654;\developer-manual\drivers\scheme:\host:port">scheme://host:port</a></font>와 같은 표준 URI 패턴을 따릅니다. 예를들어, <font color="red">bolt://203.0.113.1:1234</font>는 <font color="red">203.0.113.1</font> 주소로 포트 <font color="red">1234</font>를 통해 볼트 프로토콜을 사용하여 접속합니다. 호스트명은 IP 주소 대신에 사용될 수 있습니다: <font color="red"><a href="file:///D:\OneDrive - MOS\09. Neo4j Certification, &#xC790;&#xB8CC;\Neo4j &#xBA54;&#xB274;&#xC5BC; &#xD55C;&#xAE00;&#xD654;\developer-manual\drivers\bolt:\server:1234">bolt://server:1234</a></font>. The default Bolt port is <font color="red">7687</font>.</p>
+<p>라우팅 URI는 스키마 <font color="red"><a href="file:///D:\OneDrive - MOS\09. Neo4j Certification, &#xC790;&#xB8CC;\Neo4j &#xBA54;&#xB274;&#xC5BC; &#xD55C;&#xAE00;&#xD654;\developer-manual\drivers\bolt+routing:\server:1234">bolt+routing://server:1234</a></font>를 사용합니다.</p>
+<p><font color="gray">예제 4.3. 다이렉트 URI를 사용하여 드라이버 만들기</font><br>
+C#</p>
+<table>
+<thead>
+<tr><th><font color="purple">var</font> <font color="blue">driver</font> = GraphDatabase.Driver(<font color="red">&quot;<a href="file:///D:\OneDrive - MOS\09. Neo4j Certification, &#xC790;&#xB8CC;\Neo4j &#xBA54;&#xB274;&#xC5BC; &#xD55C;&#xAE00;&#xD654;\developer-manual\drivers\bolt:\localhost:7687">bolt://localhost:7687</a>&quot;</font>, AuthTokens.Basic(<font color="red">&quot;neo4j&quot;</font>, <font color="red">&quot;neo4j&quot;</font>));</th></tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>라우팅 URI는 Neo4j Causal Cluster를 사용하기 위한 클러스터 인식 라우팅 드라이버를 만드는 데 사용됩니다</p>
+<p><font color="gray">예제 4.4. 라우팅 URI를 사용하여 드라이버 만들기</font></p>
+<table>
+<thead>
+<tr><th>Driver driver = GraphDatabase.driver( <font color="red">&quot;<a href="file:///D:\OneDrive - MOS\09. Neo4j Certification, &#xC790;&#xB8CC;\Neo4j &#xBA54;&#xB274;&#xC5BC; &#xD55C;&#xAE00;&#xD654;\developer-manual\drivers\bolt+routing:\localhost">bolt+routing://localhost</a>&quot;</font>, AuthTokens.basic(<font color="red">&quot;neo4j&quot;</font>, <font color="red">&quot;neo4j&quot;</font>) );</th></tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>생성시 오직 하나의 URI만 드라이버에 전달됩니다. 만일 해당 URI에서 응답 할 수있는 서버가 없으면 <font color="red">ServiceUnavailableException</font>이 발생합니다. 따라서 여러 시드 URI를 통해 루프 안에서 드라이버를 만드는 것이 유용 할 수 있습니다.</p>
+<p><font color="gray">예제 4.5. 여러 라우팅 URI를 사용하여 드라이버 만들기</font></p>
+<table><tr><td>
+<font color="purple">public</font> Driver <font color="blue">acquireDriver</font>(List<<font color="green">String</font>> uris, AuthToken authToken, Config config)<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="purple">for</font> (<font color="green">String</font> uri : uris)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="purple">try</font> {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="purple">return</font> GraphDatabase.driver(uri, authToken, config);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="purple">catch</font> (ServiceUnavailableException ex)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="brown">// This URI failed, so loop around again if we have another.</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="purple">throw new</font> ServiceUnavailableException(<font color="red">"No valid database URI found"</font>);<br>
+}</td></tr>
+</table>
+<p>일부 구성의 경우 IP 주소 대신 볼트 URI 내에서 호스트 이름을 사용하는 것도 고려해 볼 가치가 있습니다. 이것은 대체 서버로 리다이렉션 해야하는 경우 어플리케이션 구성 대신 DNS 수준에서 조정할 수 있는 추가 주소 계층을 허용합니다.</p>
+<h3 id="432-&#xAD6C;&#xC131;">4.3.2. 구성</h3>
+<p>구성 설정이 드라이버 생성자에 제공됩니다. 이 섹션의 나머지 부분에 나오는 예제에서 이것의 사용법을 보여줍니다.</p>
+<h4 id="4321-&#xC554;&#xD638;&#xD654;&#xC640;-&#xC778;&#xC99D;">4.3.2.1. 암호화와 인증</h4>
+<p>모든 Neo4j 드라이버는 SSL/TLS를 사용하여 Neo4j 드라이버와 Neo4j 인스턴스 간의 트래픽을 암호화합니다. Neo4j는 연결이 로컬 루프백 인터페이스에 대한 경우를 제외하고 기본적으로 암호화 된 연결만 허용합니다. 로컬 연결은 개발 환경에서 테스트하기 위한 경우가 일반적입니다. 테스트 시나리오가 진행되면서 빈번하게 여러 데이터베이스 서버가 차례로 시작되고 종료됩니다. 자동 생성 된 인증서 및 Trust On First Use 신뢰 전략을 사용하는 것은 문제가 될 수 있습니다. 첫 번째 서버에서 생성 된 인증서는 볼트 URI와 연결됩니다. 만일 시작된 다음 서버가 동일한 볼트 URI로 연결되어 지면, 인증서가 일치되지 않고 연결이 실패할 것입니다.</p>
+<p>이를 줄이기 위해 기본 구성은 ENCRYPTION_NON_LOCAL 정책을 사용합니다. 즉, 원격 호스트와의 통신은 기본적으로 암호화되지만 로컬 연결은 암호화되지 않습니다.</p>
+<p>이것은 모든 연결에 대해 암호화를 요구하도록 수정될 수 있습니다. 자세한 내용은 <a href="https://neo4j.com/docs/operations-manual/3.1/configuration/connectors/">Neo4j 운영 매뉴얼 → 볼트 커넥터 구성</a>을 참조하십시오.</p>
+<p>Neo4j에 저장된 인증 증명서와 데이터를 안전하게 유지하기 위해 암호화를 사용하는 것을 강력히 추천합니다.</p>
+<table bordercolor="white" border="0">
+<tr><td><img src="file:///D:\OneDrive - MOS\09. Neo4j Certification, &#xC790;&#xB8CC;\Neo4j &#xBA54;&#xB274;&#xC5BC; &#xD55C;&#xAE00;&#xD654;\developer-manual\drivers\img\warning.gif" width="70"></td><td>기술 제한으로 인해 .NET 드라이버에는 기본적으로 활성화 된 암호화가 없습니다. JavaScript 드라이버는 웹 브라우저에서 실행될 때 기본적으로 활성화 된 암호화가 없습니다.</td></tr></table>
+<h5 id="&#xC554;&#xD638;&#xD654;">암호화</h5>
+<p>TLS 암호화를 켜거나 끄도록 드라이버를 구성 할 수 있습니다. 암호화는 신뢰할 수 있는 내부 네트워크에서만 해제해야 합니다. 대부분의 드라이버는 기본적으로 암호화를 사용하도록 설정되어 있지만 명시적으로 암호화를 구성하는 것이 좋습니다. 이것은 다른 개발자가 코드를 읽을 때 명확한 암호화가 사용되도록 하여 기본값을 사용하여 야기되는 실수의 위험을 최소화합니다</p>
+<p><font color="gray">예제 4.6. TLS 암호화를 사용하도록 드라이버 구성하기</font><br>
+C#</p>
+<h5 id="&#xC2E0;&#xB8B0;">신뢰</h5>
+<p>암호화 된 연결을 설정할 때 원격 피어가 우리가 연결할 것으로 예상되는 사람인지 확인해야 합니다. 이를 확인하지 않으면 공격자는 &quot;man-in-the-middle&quot; 공격을 쉽게 수행 할 수 있으며, 드라이버를 속여 Neo4j 인스턴스 대신 그녀와 암호화 된 연결을 설정할 수 있습니다. 이 때문에 Neo4j 드라이버는 신뢰 구축없이 암호화 된 연결을 설정하는 방법을 제공하지 않습니다.</p>
+<p>두 가지 신뢰 전략을 사용할 수 있습니다:</p>
+<ul>
+<li><p>Trust on first use.</p></li>
+<li><p>Trust signed certificate.</p></li>
+</ul>
+<p><em>Trust on first use</em>는 드라이버가 안전하고 의도적인 호스트에 대한 첫 번째 연결을 신뢰한다는 것을 의미합니다. 후속 연결에서 드라이버는 첫 번째 연결에서와 동일한 호스트와 통신하는지 확인합니다. 이 인증 전략이 유효하도록 하려면 서버에 대한 첫 번째 연결을 신뢰할 수 있는 네트워크 환경에서 설정해야 합니다.</p>
+<p>이 전략은 ssh 커맨드 라인 툴에서 사용하는 기본 전략과 같습니다. 이것은 아무런 구성없이 좋은 수준의 보안을 제공합니다. 이런 이유로, 이를 지원하는 모든 플랫폼에서 이것이 기본 전략입니다.</p>
+<p>기술 제한으로 인해 이 전략은 .NET 플랫폼이나 웹 브라우저에서 JavaScript 드라이버를 사용하는 경우에는 사용할 수 없습니다.</p>
+<p><font color="gray">예제 4.7. 첫번째 사용을 신뢰하도록 드라이버 구성하기</font><br>
+C#</p>
+<table width="1200"><font color="brown"><tr><td width="1200">// Not supported in this driver</td></tr></font>
+</table>
+<p><em>Trust signed certificate</em>는 드라이버가 그것이 신뢰할 수 있는 인증서를 제공하는 경우에만  Neo4j 서버에 연결할 것이라는 것을 의미합니다. 신뢰할 수 있는 인증서는 드라이버에 의해 신뢰되도록 명시적으로 구성된 인증서이거나 일반적으로 드라이버가 신뢰하는 인증서로 서명된 인증서입니다. 모든 드라이버는 이 신뢰 전략을 지원합니다.</p>
+<p>드라이버가 사용할 신뢰할 수 있는 인증서를 설치하는 방법은 드라이버마다 다릅니다. Java 드라이버는 신뢰할 수 있는 인증서의 파일 경로를 직접 받아들여 런타임에 자동으로 인증서를 로딩합니다. .NET 및 Python 드라이버는 먼저 인증서를 운영 체제의 신뢰할 수 있는 인증서 저장소에 설치해야 합니다.</p>
+<p><font color="gray">예제 4.8. 서명 된 인증서를 신뢰하도록 드라이버 구성하기</font><br>
+C#</p>
+<table><tr><td width="1200"> var driver = GraphDatabase.Driver("bolt://localhost", AuthTokens.Basic("neo4j", "neo4j"),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Config.Builder.WithEncryptionLevel(EncryptionLevel.Encrypted)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.WithTrustStrategy(TrustStrategy.TrustSystemCaSignedCertificates).ToConfig());
+        </td></tr>
+        </table>
+<h4 id="&#xC0AC;&#xC6A9;&#xC790;-&#xC778;&#xC99D;">사용자 인증</h4>
+<p>서버는 인증이 사용 불가능한 경우를 제외하고는, 사용자가 데이터베이스에 연결하기 위한 인증 증명서를 드라이버에게 제공하도록 요구합니다.</p>
+<p><font color="gray">예제 4.9. 인증이 비활성화 된 서버에 드라이버 연결하기</font><br>
+C#</p>
+<p>드라이버와 서버 간의 통신이 암호화되지 않으면 인증 증명서가 일반 텍스트로 전송됩니다. 인증을 사용할 때는 암호화를 사용하는 것이 좋습니다.</p>
+<table><tr><td><img src="file:///D:\OneDrive - MOS\09. Neo4j Certification, &#xC790;&#xB8CC;\Neo4j &#xBA54;&#xB274;&#xC5BC; &#xD55C;&#xAE00;&#xD654;\developer-manual\drivers\img\note.gif" width="70"></td>
+<td with="1200">Neo4j에 처음 연결할 때, 사용자는 반드시 기본 암호를 변경해야 합니다. 신규 Neo4j 서버 설치시, 기본 암호로 Neo4j 서버에 연결하려고 하면 자격 증명서가 만료되었고 암호를 업데이트 해야한다는 알림이 제공됩니다. 브라우저는 만료 된 암호를 변경하는 데 사용될 수 있습니다.</td></tr></table>
+
+
+  </body>
+  
+</html>
