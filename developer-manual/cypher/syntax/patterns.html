@@ -707,11 +707,11 @@
 <p>패턴을 사용하면 찾고있는 데이터의 모양을 설명 할 수 있습니다. 예를 들어, <code>MATCH</code> 절에서 패턴을 사용하여 도형을 설명하고 Cypher는 해당 데이터를 가져 오는 방법을 파악합니다.</p>
 <p>이 패턴은 일반적으로 화이트 보드에 속성 그래프 데이터의 모양을 그리는 방법과 매우 유사한 양식을 사용하여 데이터를 설명합니다. 일반적으로 관계를 나타 내기 위해 원 (노드를 나타내는)과 화살표 사이에 화살표가 그려져 있습니다.</p>
 <p>패턴은 Cypher의 여러 위치 ( <code>MATCH</code>, <code>CREATE</code>, <code>MERGE</code> 절 및 패턴 표현식)에 나타납니다. 각각에 대한 자세한 내용은 다음에서 설명합니다.</p>
-<p><a href="file:///D:\OneDrive - MOS\09. Neo4j Certification, &#xC790;&#xB8CC;\Neo4j &#xBA54;&#xB274;&#xC5BC; &#xD55C;&#xAE00;&#xD654;\developer-manual\cypher\clauses\match.html">3.3.1, &quot;MATCH&quot;</a><br>
-<a href="file:///D:\OneDrive - MOS\09. Neo4j Certification, &#xC790;&#xB8CC;\Neo4j &#xBA54;&#xB274;&#xC5BC; &#xD55C;&#xAE00;&#xD654;\developer-manual\cypher\clauses\optional-match.html">3.3.2, &quot;OPTIONAL MATCH&quot;</a><br>
-<a href="file:///D:\OneDrive - MOS\09. Neo4j Certification, &#xC790;&#xB8CC;\Neo4j &#xBA54;&#xB274;&#xC5BC; &#xD55C;&#xAE00;&#xD654;\developer-manual\cypher\clauses\create.html">3.3.7, &quot;CREATE&quot;</a><br>
-<a href="file:///D:\OneDrive - MOS\09. Neo4j Certification, &#xC790;&#xB8CC;\Neo4j &#xBA54;&#xB274;&#xC5BC; &#xD55C;&#xAE00;&#xD654;\developer-manual\cypher\clauses\merge.html">3.3.8, &quot;MERGE&quot;</a><br>
-<a href="file:///D:\OneDrive - MOS\09. Neo4j Certification, &#xC790;&#xB8CC;\Neo4j &#xBA54;&#xB274;&#xC5BC; &#xD55C;&#xAE00;&#xD654;\developer-manual\cypher\clauses\where.html#query-where-patterns">3.3.3.4, &quot;Using path patterns in WHERE&quot;</a></p>
+<p><a href="https://mossupport.github.io/developer-manual/cypher/clauses/match.html">3.3.1, &quot;MATCH&quot;</a><br>
+<a href="https://mossupport.github.io/developer-manual/cypher/clauses/optional-match.html">3.3.2, &quot;OPTIONAL MATCH&quot;</a><br>
+<a href="https://mossupport.github.io/developer-manual/cypher/clauses/create.html">3.3.7, &quot;CREATE&quot;</a><br>
+<a href="https://mossupport.github.io/developer-manual/cypher/clauses/merge.html">3.3.8, &quot;MERGE&quot;</a><br>
+<a href="https://mossupport.github.io/developer-manual/cypher/clauses/where.html#query-where-patterns">3.3.3.4, &quot;Using path patterns in WHERE&quot;</a></p>
 <h4 id="3271-&#xB178;&#xB4DC;&#xD328;&#xD134;">3.2.7.1. 노드패턴</h4>
 <p>패턴에서 설명 할 수있는 가장 단순한 '모양'은 노드입니다. 노드는 한 쌍의 괄호를 사용하여 설명되며 일반적으로 이름이 지정됩니다. 예 :</p>
 <pre class="editor-colors lang-text"><div class="line"><span class="mpe-syntax--text mpe-syntax--plain"><span class="mpe-syntax--meta mpe-syntax--paragraph mpe-syntax--text"><span>(a)</span></span></span></div></pre>
@@ -751,7 +751,7 @@
 <p>노드와 마찬가지로 관계의 이름은 항상 생략 할 수 있습니다.이 경우에는 다음과 같습니다.</p>
 <pre class="editor-colors lang-text"><div class="line"><span class="mpe-syntax--text mpe-syntax--plain"><span class="mpe-syntax--meta mpe-syntax--paragraph mpe-syntax--text"><span>(a)-[:REL_TYPE]-&gt;(b)</span></span></span></div></pre>
 <p>가변 길이</p>
-<table width="1200"><tr><td><i class="fa icon-alert-circle" title="important"></i><img src="file:///D:\OneDrive - MOS\09. Neo4j Certification, &#xC790;&#xB8CC;\Neo4j &#xBA54;&#xB274;&#xC5BC; &#xD55C;&#xAE00;&#xD654;\developer-manual\cypher\syntax\img\note.gif" width="70"></td><td width="90%">버전 2.1.x 및 이전 버전에서의 가변 길이 패턴 일치는 단일 MATCH 절 내부에 설명 된 패턴에 대한 관계 고유성을 적용하지 않습니다. 이것은 `MATCH (a)-[r]->(b), (a)-[rs*]->(c) RETURN *` 과 같은 쿼리가 `r` 을 `rs` 집합의 일부로 포함 할 수 있음을 의미합니다. 이 동작은 버전 2.2.0 이상에서 `r` 이 결과 집합에서 제외되는 방식으로 변경되었습니다. 여기서는 [3.1.4 절 "고유성"](../introduction/uniqueness.html) 에서 설명 하는 관계 고유성 규칙을 보다 잘 준수합니다. 관계 고유성 규칙이 일반적으로 지시하는대로 관계를 무시하지 않고 관계를 되돌려 야하는 쿼리 패턴이있는 경우 다음과 같이 여러 일치 절을 사용하여 이를 수행 할 수 있습니다. `MATCH (a)-[r]->(b) MATCH (a)-[rs*]->(c) RETURN *`. 이것은 `MATCH` 절을 지원하는 모든 버전의 Neo4j에서 작동합니다 (2.0.0 이상).</td></tr><table>
+<table width="1200"><tr><td><i class="fa icon-alert-circle" title="important"></i><img src="https://mossupport.github.io/developer-manual/cypher/syntax/img/note.gif" width="70"></td><td width="90%">버전 2.1.x 및 이전 버전에서의 가변 길이 패턴 일치는 단일 MATCH 절 내부에 설명 된 패턴에 대한 관계 고유성을 적용하지 않습니다. 이것은 `MATCH (a)-[r]->(b), (a)-[rs*]->(c) RETURN *` 과 같은 쿼리가 `r` 을 `rs` 집합의 일부로 포함 할 수 있음을 의미합니다. 이 동작은 버전 2.2.0 이상에서 `r` 이 결과 집합에서 제외되는 방식으로 변경되었습니다. 여기서는 [3.1.4 절 "고유성"](../introduction/uniqueness.html) 에서 설명 하는 관계 고유성 규칙을 보다 잘 준수합니다. 관계 고유성 규칙이 일반적으로 지시하는대로 관계를 무시하지 않고 관계를 되돌려 야하는 쿼리 패턴이있는 경우 다음과 같이 여러 일치 절을 사용하여 이를 수행 할 수 있습니다. `MATCH (a)-[r]->(b) MATCH (a)-[rs*]->(c) RETURN *`. 이것은 `MATCH` 절을 지원하는 모든 버전의 Neo4j에서 작동합니다 (2.0.0 이상).</td></tr><table>
 <p>패턴에 많은 노드 및 관계 설명의 시퀀스를 사용하여 긴 경로를 설명하는 대신 패턴의 관계 설명에서 길이를 지정하여 많은 관계 (및 중간 노드)를 설명 할 수 있습니다. 예 :</p>
 <pre class="editor-colors lang-text"><div class="line"><span class="mpe-syntax--text mpe-syntax--plain"><span class="mpe-syntax--meta mpe-syntax--paragraph mpe-syntax--text"><span>(a)-[*2]-&gt;(b)</span></span></span></div></pre>
 <p>이것은 3 개의 노드와 2 개의 관계의 그래프를 모두 한 경로 (길이 2의 경로)로 설명합니다. 이것은 다음과 같습니다.</p>
