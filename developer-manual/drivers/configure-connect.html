@@ -711,8 +711,8 @@
 <p>볼트 URI에는 다이렉트 URI와 라우팅 URI의 두 가지 종류가 있습니다. 다이렉트 URI는 단일 인스턴스에 연결하는 데 사용됩니다. 어플리케이션이 라우팅 및 로드 밸런싱에 의존하는 경우 이들은 반드시 별도로 제공되어야 합니다. 드라이버는 연결될 수 있는 클러스터를 알지 못하며 단일 서버에 대한 직접 연결만 인식합니다.이 모드는 독립 실행형 인스턴스로 작업하거나 사용자 정의 로드 밸런싱을 배포 할 때 적합합니다(예 : Neo4j 고 가용성 클러스터 및 HAProxy 사용).</p>
 <p>라우팅 URI는 클러스터 인식 드라이버를 만드는 데 사용됩니다. 라우팅 드라이버는 클러스터에 연결하고 라우팅 및 로드 밸런싱을 처리합니다. 드라이버에 시드 URI를 제공 한 후 드라이버는 연결되어 클러스터 토폴로지 개요를 요청합니다. 그 후 드라이버는 특정 작업 항목을 서비스하는 데 가장 적합한 클러스터 멤버에 대해 세션을 생성 할 수 있습니다. 이 모드는 Neo4j Causal Cluster 작업에 적합합니다.</p>
 <h4 id="4311-&#xBCFC;&#xD2B8;-uri-&#xD3EC;&#xB9F7;">4.3.1.1. 볼트 URI 포맷</h4>
-<p>볼트 URI는 <font color="red"><a href="file:///D:\OneDrive - MOS\09. Neo4j Certification, &#xC790;&#xB8CC;\Neo4j &#xBA54;&#xB274;&#xC5BC; &#xD55C;&#xAE00;&#xD654;\developer-manual\drivers\scheme:\host:port">scheme://host:port</a></font>와 같은 표준 URI 패턴을 따릅니다. 예를들어, <font color="red">bolt://203.0.113.1:1234</font>는 <font color="red">203.0.113.1</font> 주소로 포트 <font color="red">1234</font>를 통해 볼트 프로토콜을 사용하여 접속합니다. 호스트명은 IP 주소 대신에 사용될 수 있습니다: <font color="red"><a href="file:///D:\OneDrive - MOS\09. Neo4j Certification, &#xC790;&#xB8CC;\Neo4j &#xBA54;&#xB274;&#xC5BC; &#xD55C;&#xAE00;&#xD654;\developer-manual\drivers\bolt:\server:1234">bolt://server:1234</a></font>. The default Bolt port is <font color="red">7687</font>.</p>
-<p>라우팅 URI는 스키마 <font color="red"><a href="file:///D:\OneDrive - MOS\09. Neo4j Certification, &#xC790;&#xB8CC;\Neo4j &#xBA54;&#xB274;&#xC5BC; &#xD55C;&#xAE00;&#xD654;\developer-manual\drivers\bolt+routing:\server:1234">bolt+routing://server:1234</a></font>를 사용합니다.</p>
+<p>볼트 URI는 <font color="red"><a href="https://mossupport.github.io/developer-manual/drivers/scheme:/host:port">scheme://host:port</a></font>와 같은 표준 URI 패턴을 따릅니다. 예를들어, <font color="red">bolt://203.0.113.1:1234</font>는 <font color="red">203.0.113.1</font> 주소로 포트 <font color="red">1234</font>를 통해 볼트 프로토콜을 사용하여 접속합니다. 호스트명은 IP 주소 대신에 사용될 수 있습니다: <font color="red"><a href="file:///D:\OneDrive - MOS\09. Neo4j Certification, &#xC790;&#xB8CC;\Neo4j &#xBA54;&#xB274;&#xC5BC; &#xD55C;&#xAE00;&#xD654;\developer-manual\drivers\bolt:\server:1234">bolt://server:1234</a></font>. The default Bolt port is <font color="red">7687</font>.</p>
+<p>라우팅 URI는 스키마 <font color="red"><a href="https://mossupport.github.io/developer-manual/drivers/bolt+routing:/server:1234">bolt+routing://server:1234</a></font>를 사용합니다.</p>
 <p><font color="gray">예제 4.3. 다이렉트 URI를 사용하여 드라이버 만들기</font><br>
 C#</p>
 <table>
@@ -758,7 +758,7 @@ C#</p>
 <p>이것은 모든 연결에 대해 암호화를 요구하도록 수정될 수 있습니다. 자세한 내용은 <a href="https://neo4j.com/docs/operations-manual/3.1/configuration/connectors/">Neo4j 운영 매뉴얼 → 볼트 커넥터 구성</a>을 참조하십시오.</p>
 <p>Neo4j에 저장된 인증 증명서와 데이터를 안전하게 유지하기 위해 암호화를 사용하는 것을 강력히 추천합니다.</p>
 <table bordercolor="white" border="0">
-<tr><td><img src="file:///D:\OneDrive - MOS\09. Neo4j Certification, &#xC790;&#xB8CC;\Neo4j &#xBA54;&#xB274;&#xC5BC; &#xD55C;&#xAE00;&#xD654;\developer-manual\drivers\img\warning.gif" width="70"></td><td>기술 제한으로 인해 .NET 드라이버에는 기본적으로 활성화 된 암호화가 없습니다. JavaScript 드라이버는 웹 브라우저에서 실행될 때 기본적으로 활성화 된 암호화가 없습니다.</td></tr></table>
+<tr><td><img src="https://mossupport.github.io/developer-manual/drivers/img/warning.gif" width="70"></td><td>기술 제한으로 인해 .NET 드라이버에는 기본적으로 활성화 된 암호화가 없습니다. JavaScript 드라이버는 웹 브라우저에서 실행될 때 기본적으로 활성화 된 암호화가 없습니다.</td></tr></table>
 <h5 id="&#xC554;&#xD638;&#xD654;">암호화</h5>
 <p>TLS 암호화를 켜거나 끄도록 드라이버를 구성 할 수 있습니다. 암호화는 신뢰할 수 있는 내부 네트워크에서만 해제해야 합니다. 대부분의 드라이버는 기본적으로 암호화를 사용하도록 설정되어 있지만 명시적으로 암호화를 구성하는 것이 좋습니다. 이것은 다른 개발자가 코드를 읽을 때 명확한 암호화가 사용되도록 하여 기본값을 사용하여 야기되는 실수의 위험을 최소화합니다</p>
 <p><font color="gray">예제 4.6. TLS 암호화를 사용하도록 드라이버 구성하기</font><br>
@@ -791,7 +791,7 @@ C#</p>
 <p><font color="gray">예제 4.9. 인증이 비활성화 된 서버에 드라이버 연결하기</font><br>
 C#</p>
 <p>드라이버와 서버 간의 통신이 암호화되지 않으면 인증 증명서가 일반 텍스트로 전송됩니다. 인증을 사용할 때는 암호화를 사용하는 것이 좋습니다.</p>
-<table><tr><td><img src=".\developer-manual\drivers\img\note.gif" width="70"></td>
+<table><tr><td><img src="https://mossupport.github.io/developer-manual/drivers/img/note.gif" width="70"></td>
 <td with="1200">Neo4j에 처음 연결할 때, 사용자는 반드시 기본 암호를 변경해야 합니다. 신규 Neo4j 서버 설치시, 기본 암호로 Neo4j 서버에 연결하려고 하면 자격 증명서가 만료되었고 암호를 업데이트 해야한다는 알림이 제공됩니다. 브라우저는 만료 된 암호를 변경하는 데 사용될 수 있습니다.</td></tr></table>
 
 
