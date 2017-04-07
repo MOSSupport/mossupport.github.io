@@ -922,7 +922,7 @@ pre.editor-colors .search-results .mpe-syntax--marker.current-result .region {
 <h4 id="4321-&#xC554;&#xD638;&#xD654;&#xC640;-&#xC778;&#xC99D;">4.3.2.1. 암호화와 인증</h4>
 <p>모든 Neo4j 드라이버는 SSL/TLS를 사용하여 Neo4j 드라이버와 Neo4j 인스턴스 간의 트래픽을 암호화합니다. Neo4j는 연결이 로컬 루프백 인터페이스에 대한 경우를 제외하고 기본적으로 암호화 된 연결만 허용합니다. 로컬 연결은 개발 환경에서 테스트하기 위한 경우가 일반적입니다. 테스트 시나리오가 진행되면서 빈번하게 여러 데이터베이스 서버가 차례로 시작되고 종료됩니다. 자동 생성 된 인증서 및 Trust On First Use 신뢰 전략을 사용하는 것은 문제가 될 수 있습니다. 첫 번째 서버에서 생성 된 인증서는 볼트 URI와 연결됩니다. 만일 시작된 다음 서버가 동일한 볼트 URI로 연결되어 지면, 인증서가 일치되지 않고 연결이 실패할 것입니다.</p>
 <p>이를 줄이기 위해 기본 구성은 ENCRYPTION_NON_LOCAL 정책을 사용합니다. 즉, 원격 호스트와의 통신은 기본적으로 암호화되지만 로컬 연결은 암호화되지 않습니다.</p>
-<p>이것은 모든 연결에 대해 암호화를 요구하도록 수정될 수 있습니다. 자세한 내용은 <a href="https://neo4j.com/docs/operations-manual/3.1/configuration/connectors/">Neo4j 운영 매뉴얼 → 볼트 커넥터 구성</a>을 참조하십시오.</p>
+<p>이것은 모든 연결에 대해 암호화를 요구하도록 수정될 수 있습니다. 자세한 내용은 <a href="https://neo4j.com/docs/operations-manual/3.1/configuration/connectors/">Neo4j 운영 메뉴얼 → 볼트 커넥터 구성</a>을 참조하십시오.</p>
 <p>Neo4j에 저장된 인증 증명서와 데이터를 안전하게 유지하기 위해 암호화를 사용하는 것을 강력히 추천합니다.</p>
 <table bordercolor="white" border="0" width="1200">
 <tr><td align="center"><img src="https://mossupport.github.io/developer-manual/drivers/img/warning.gif"></td><td width="90%">기술 제한으로 인해 .NET 드라이버에는 기본적으로 활성화 된 암호화가 없습니다. JavaScript 드라이버는 웹 브라우저에서 실행될 때 기본적으로 활성화 된 암호화가 없습니다.</td></tr></table>

@@ -706,18 +706,18 @@
 <p>저작권 © 2017 Neo Technology</p>
 <p>라이센스: <a href="https://neo4j.com/docs/license">Creative Commons 3.0</a></p>
 <table><tr><td width="1200">
-<em>Neo4j 팀에 의해 작성된 Neo4j 3.1 버전의 개발자 메뉴얼입니다.</em> </td></tr></table>
-<p>메뉴얼의 주요 부분은 다음과 같습니다:</p>
+<em>Neo4j 팀에 의해 작성된 Neo4j 3.1 버전의 개발자 매뉴얼입니다.</em> </td></tr></table>
+<p>매뉴얼의 주요 부분은 다음과 같습니다:</p>
 <ul>
 <li><p><a href="https://mossupport.github.io/developer-manual/introduction/introduction-highlights.html">1 장, <em>소개</em></a> — 그래프 데이터베이스 개념과 Neo4j 소개.</p></li>
 <li><p><a href="https://mossupport.github.io/developer-manual/get-started/install-neo4j.html">2 장, <em>시작</em></a> — Neo4j 사용의 시작: Cypher와 드라이버.</p></li>
 <li><p><a href="https://mossupport.github.io/developer-manual/cypher/cypher.html">3 장, <em>Cypher</em></a> — Cypher 쿼리 언어를 위한 참조.</p></li>
-<li><p><a href="https://mossupport.github.io/developer-manual/drivers/drivers.html">4 장, <em>드라이버</em></a> — 표준 언어 드라이버 매뉴얼.</p></li>
+<li><p><a href="https://mossupport.github.io/developer-manual/drivers/drivers.html">4 장, <em>드라이버</em></a> — 표준 언어 드라이버 메뉴얼.</p></li>
 <li><p><a href="https://neo4j.com/docs/developer-manual/3.1/reference/">부록 A, <em>참조</em></a> — Neo4j 상태 코드 참조.</p></li>
 <li><p><a href="https://neo4j.com/docs/developer-manual/3.1/terminology/">부록 B, <em>용어사전</em></a> — 그래프 데이터베이스 전문 용어.</p></li>
 </ul>
 <p><em>누가 읽어야 할까요?</em><br>
-이 메뉴얼은 Neo4j 클라이언트 어플리케이션 개발자를 위해 쓰여졌습니다.</p>
+이 매뉴얼은 Neo4j 클라이언트 어플리케이션 개발자를 위해 쓰여졌습니다.</p>
 
 
   </body>
